@@ -6,9 +6,8 @@ using System.Threading.Tasks;
 
 namespace FlixOne.InventoryManagementClient
 {
-    public class HelpCommand : InventoryCommand
+    internal class HelpCommand : NonTerminatingCommand
     {
-        public HelpCommand() : base(false) { }
         internal override bool InternalCommand()
         {
             Console.WriteLine("USAGE:");

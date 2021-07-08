@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace FlixOne.InventoryManagementClient
 {
-    public class QuitCommand : InventoryCommand
+    internal class QuitCommand : InventoryCommand
     {
-        public QuitCommand() : base(true) { }
+        internal QuitCommand() : base(true) { }
         internal override bool InternalCommand()
         {
             Console.WriteLine("Thank you for using FlixOne Inventory Management System");
