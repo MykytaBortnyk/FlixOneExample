@@ -6,7 +6,19 @@ namespace FlixOne.InventoryManagementClient
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            Greeting();
+            GetCommand("?").RunCommand(out bool slouldQuit);
+            while(!slouldQuit)
+            {
+                Console.WriteLine(" > ");
+                var input = Console.ReadLine();
+                var command = GetCommand(input);
+                var wasSuccessful = command.RunCommand(out bool slouldQuit);
+
+                if (!wasSuccessful)
+                    Console.WriteLine("Enter ? to view options");
+            }
+            Console.WriteLine("CatalogService has completed.");
         }
     }
 }
