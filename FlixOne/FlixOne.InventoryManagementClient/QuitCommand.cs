@@ -8,11 +8,11 @@ namespace FlixOne.InventoryManagementClient
 {
     internal class QuitCommand : InventoryCommand
     {
-        internal QuitCommand() : base(true) { }
+        public QuitCommand(IUserInterface userInterface) : 
+            base(commandIsTerminating: true, userInteface: userInterface)
         internal override bool InternalCommand()
         {
-            Console.WriteLine("Thank you for using FlixOne Inventory Management System");
-
+            Interface.WriteMessage("Thank you for using FlixOne Inventory Management System");
             return true;
         }
     }
