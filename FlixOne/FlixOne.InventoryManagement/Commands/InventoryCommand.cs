@@ -5,7 +5,13 @@ namespace FlixOne.InventoryManagementClient
     public abstract class InventoryCommand
     {
         private readonly bool _isTerminatingCommand;
-        internal InventoryCommand(bool commandIsTerminating) => _isTerminatingCommand = commandIsTerminating;
+        protected IUserInterface Interface { get; }
+        internal InventoryCommand(bool commandIsTerminating, IUserInterface userInteface)
+        {
+            _isTerminatingCommand = commandIsTerminating;
+            Interface = userInteface;
+        }
+
         public (bool wasSuccessful, bool shouldQuit) RunCommand()
         {
             if (this is IParameterisedCommand parameterisedCommand)
@@ -18,6 +24,12 @@ namespace FlixOne.InventoryManagementClient
             }
             return (InternalCommand(), _isTerminatingCommand); 
         }
+
+        internal string GetParameter(string parameterName)
+        {
+            return Interface.ReadValue($"Enter {parameterName}:");
+        }
+
         internal abstract bool InternalCommand();
     }
     internal abstract class NonTerminatingCommand : InventoryCommand
