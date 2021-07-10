@@ -1,6 +1,7 @@
-﻿using FlixOne.Interfaces.InventoryManagementClient;
+﻿using FlixOne.Interfaces.InventoryManagement;
+using FlixOne.InventoryManagement.Interfaces;
 
-namespace FlixOne.InventoryManagementClient
+namespace FlixOne.InventoryManagement
 {
     public abstract class InventoryCommand
     {
@@ -31,9 +32,5 @@ namespace FlixOne.InventoryManagementClient
         }
 
         internal abstract bool InternalCommand();
-    }
-    internal abstract class NonTerminatingCommand : InventoryCommand
-    {
-        protected NonTerminatingCommand() : base(commandIsTerminating: false) { }
     }
 }

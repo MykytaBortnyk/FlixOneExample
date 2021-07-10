@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace FlixOne.Interfaces.InventoryManagementClient
+namespace FlixOne.Interfaces.InventoryManagement
 {
     public interface IParameterisedCommand
     {

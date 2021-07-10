@@ -1,15 +1,19 @@
-﻿using FlixOne.Interfaces.InventoryManagementClient;
+﻿using FlixOne.Interfaces.InventoryManagement;
+using FlixOne.InventoryManagement.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace FlixOne.InventoryManagementClient
+namespace FlixOne.InventoryManagement
 {
-    public class AddInventoryCommand : InventoryCommand, IParameterisedCommand
+    internal class AddInventoryCommand : NonTerminatingCommand, IParameterisedCommand
     {
         public string InventoryName { get; private set; }
+
+        internal AddInventoryCommand(IUserInterface userInterface) : base(userInterface) { }
+
         /// <summary>
         /// AddInventoryCommand requires name
         /// </summary>

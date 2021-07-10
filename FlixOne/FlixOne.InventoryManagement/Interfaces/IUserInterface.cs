@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace FlixOne.InventoryManagementClient.Interfaces
+namespace FlixOne.InventoryManagement.Interfaces
 {
     public interface IUserInterface : IReadUserInterface, IWriteUserInterface
     {
